@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dem so lan xuat hien</title>
+</head>
+<body>
+    <script>
+
+        var number = [];
+        for (var i = 0; i < 100; i++){
+            number[i] = Math.floor(Math.random() * 101);
+        }
+        function insertionSort(arr) {
+            var temp;
+            for (var i = 0; i < arr.length - 1; i++) {
+                for (var j = i + 1; j < arr.length; j++){
+                    if (arr[i] > arr[j]){
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;                    }
+                }
+            }
+            return arr;
+        }
+        function displayArr(arr) {
+            for (var i = 0; i < arr.length; i++){
+                document.write(arr[i] + ' ');
+                if (i % 10 === 9){
+                    document.write('<br/>');
+                }
+            }
+        };
+        insertionSort(number);
+        displayArr(number);
+        document.write('\n')
+        function count(arr, num) {
+            var count = 0;
+            for (var i = 0; i < arr.length; i++){
+                if (arr[i] === num){
+                    count++;
+                }
+            }
+            return count;
+        }
+        var val = parseInt(prompt('Enter a value to count: '));
+        var retVal = count(number, val);
+        document.write('Found ' + retVal + ' occurrences of ' + val + '.');
+    </script>
+</body>
+</html>
